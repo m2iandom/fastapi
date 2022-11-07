@@ -18,7 +18,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = settings.access_token_expire_min
 
 def create_access_token(data: dict):
     to_encode = data.copy()
-    expire = datetime.now() + timedelta(minutes=(ACCESS_TOKEN_EXPIRE_MINUTES))
+    expire = datetime.utcnow() + timedelta(minutes=(ACCESS_TOKEN_EXPIRE_MINUTES))
     print(expire)
     to_encode.update({"exp": expire})
 
